@@ -60,6 +60,7 @@ void watchdog_init() {
     sei();  // With the interrupt driven serial we need to allow interrupts.
     SERIAL_ERROR_START();
     SERIAL_ERRORLNPGM("Watchdog barked, please turn off the printer.");
+    FunV006("Something is wrong, please turn off the printer.");
     kill(PSTR("ERR:Watchdog")); //kill blocks //up to 16 characters so it fits on a 16x2 display
     while (1); //wait for user or serial reset
   }
